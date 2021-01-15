@@ -1,0 +1,43 @@
+extends Control
+
+onready var win_screen = $CanvasLayer/WinScreen
+onready var lose_screen = $CanvasLayer/LoseScreen
+onready var win_default_button =  $CanvasLayer/WinScreen/VBoxContainer/CenterContainer2/VBoxContainer/QuitButton2
+onready var lose_default_button = $CanvasLayer/LoseScreen/VBoxContainer/CenterContainer2/VBoxContainer/TryAgainButton
+
+signal try_again
+signal quit
+
+
+func hide_win_screen():
+	win_screen.visible = false
+
+
+func hide_lose_screen():
+	lose_screen.visible = false
+
+
+func hide_screens():
+	hide_win_screen()
+	hide_lose_screen()
+
+
+func show_win_screen():
+	hide_screens()
+	win_default_button.grab_focus()
+	win_screen.visible = true
+
+
+func show_lose_screen():
+	hide_screens()
+	lose_default_button.grab_focus()
+	lose_screen.visible = true
+
+
+
+func _on_TryAgainButton_pressed():
+	emit_signal("try_again")
+
+
+func _on_QuitButton_pressed():
+	emit_signal("quit")
