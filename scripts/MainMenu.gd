@@ -4,6 +4,12 @@ extends Control
 onready var start_button = $VBoxContainer/Buttons/VBoxContainer/StartButton
 
 
+func _input(event):
+	if event.is_action_pressed("start"):
+		print("Pressed Start")
+
+
+
 func _ready():
 	start_button.grab_focus()
 

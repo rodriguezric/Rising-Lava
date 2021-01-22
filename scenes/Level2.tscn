@@ -10,13 +10,16 @@
 [ext_resource path="res://scenes/Screens.tscn" type="PackedScene" id=8]
 
 [node name="Level2" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
+pause_mode = 1
 position = Vector2( 200, 56 )
 speed = 200
 
 [node name="Floor Nodes" type="Node" parent="."]
+pause_mode = 1
 
 [node name="Floor" parent="Floor Nodes" instance=ExtResource( 2 )]
 position = Vector2( 168, 96 )
@@ -87,6 +90,7 @@ position = Vector2( 504, -144 )
 position = Vector2( 544, -144 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
+pause_mode = 1
 position = Vector2( 88, 144 )
 scale = Vector2( 32.5, 1 )
 script = ExtResource( 6 )
@@ -104,6 +108,8 @@ __meta__ = {
 [node name="Screens" parent="UI" instance=ExtResource( 8 )]
 [connection signal="timeout" from="Floor Nodes/UpDownFloor/Timer" to="Floor Nodes/UpDownFloor" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Floor Nodes/UpDownFloor2/Timer" to="Floor Nodes/UpDownFloor2" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Enemy" to="." method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
 [connection signal="quit" from="UI/Screens" to="." method="_on_Screens_quit"]
 [connection signal="try_again" from="UI/Screens" to="." method="_on_Screens_try_again"]
+[connection signal="unpause" from="UI/Screens" to="." method="_on_Screens_unpause"]

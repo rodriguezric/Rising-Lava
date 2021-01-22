@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://PolyPlat/scenes/Floor.tscn" type="PackedScene" id=5]
+
+[node name="Piece" type="Node2D"]
+pause_mode = 2
+
+[node name="Pauseable" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Floors" type="Node2D" parent="Pauseable"]
+
+[node name="Left wall" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( -320, 232 )
+scale = Vector2( 21, 14.5 )
+
+[node name="Right wall" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 504, 232 )
+scale = Vector2( 20.5, 14.5 )
+
+[node name="Floor" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 232, 208 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor3" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 164, 192 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor4" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 232, 168 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor5" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 304, 160 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor8" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 248, 112 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor15" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 344, 44 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor16" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 408, 24 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor17" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 312, 0 )
+scale = Vector2( 3.5, 0.5 )
+
+[node name="Floor12" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 64, 80 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor13" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( -16, 98 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor11" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 48, 120 )
+scale = Vector2( 10, 0.5 )
+
+[node name="Floor14" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 140, 56 )
+scale = Vector2( 10, 0.5 )
+
+[node name="Floor9" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 304, 120 )
+scale = Vector2( 2.5, 0.5 )
+
+[node name="Floor10" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 376, 144 )
+scale = Vector2( 2.5, 0.5 )

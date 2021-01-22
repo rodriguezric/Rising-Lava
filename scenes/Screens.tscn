@@ -107,6 +107,60 @@ margin_bottom = 84.0
 margin_right = 45.0
 margin_bottom = 20.0
 text = "QUIT"
+
+[node name="PauseScreen" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0470588, 0.0470588, 0.505882 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "PAUSE"
+align = 1
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/PauseScreen/VBoxContainer2"]
+margin_right = 512.0
+margin_bottom = 148.0
+size_flags_vertical = 3
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/PauseScreen/VBoxContainer2"]
+margin_top = 152.0
+margin_right = 512.0
+margin_bottom = 300.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseScreen/VBoxContainer2/CenterContainer2"]
+pause_mode = 2
+margin_left = 216.0
+margin_top = 52.0
+margin_right = 296.0
+margin_bottom = 96.0
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/PauseScreen/VBoxContainer2/CenterContainer2/VBoxContainer"]
+margin_right = 80.0
+margin_bottom = 20.0
+text = "CONTINUE"
+
+[node name="QuitButton3" type="Button" parent="CanvasLayer/PauseScreen/VBoxContainer2/CenterContainer2/VBoxContainer"]
+margin_top = 24.0
+margin_right = 80.0
+margin_bottom = 44.0
+text = "QUIT"
 [connection signal="pressed" from="CanvasLayer/LoseScreen/VBoxContainer/CenterContainer2/VBoxContainer/TryAgainButton" to="." method="_on_TryAgainButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LoseScreen/VBoxContainer/CenterContainer2/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/WinScreen/VBoxContainer/CenterContainer2/VBoxContainer/QuitButton2" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/VBoxContainer2/CenterContainer2/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/PauseScreen/VBoxContainer2/CenterContainer2/VBoxContainer/QuitButton3" to="." method="_on_QuitButton_pressed"]

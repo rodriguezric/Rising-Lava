@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/Level1.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Screens.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PolyPlat/scenes/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PolyPlat/scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PolyPlat/scenes/Floor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Lava.gd" type="Script" id=6]
+
+[node name="StartPiece" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+use_generator = true
+number_of_pieces = 2
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Screens" parent="UI" instance=ExtResource( 2 )]
+
+[node name="Pauseable" type="Node2D" parent="."]
+pause_mode = 1
+position = Vector2( 0, 100 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Player" parent="Pauseable" instance=ExtResource( 4 )]
+position = Vector2( 192, 120 )
+
+[node name="Floors" type="Node2D" parent="Pauseable"]
+
+[node name="Left wall" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( -320, 232 )
+scale = Vector2( 21, 6.5 )
+
+[node name="Right wall" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 504, 232 )
+scale = Vector2( 20.5, 6.5 )
+
+[node name="Floor" parent="Pauseable/Floors" instance=ExtResource( 5 )]
+position = Vector2( 16, 232 )
+scale = Vector2( 30.5, 6.5 )
+
+[node name="Lava" parent="Pauseable" instance=ExtResource( 3 )]
+position = Vector2( -320, 400 )
+scale = Vector2( 71.5, 10.5 )
+script = ExtResource( 6 )
+speed = 15
+[connection signal="quit" from="UI/Screens" to="." method="_on_Screens_quit"]
+[connection signal="try_again" from="UI/Screens" to="." method="_on_Screens_try_again"]
+[connection signal="unpause" from="UI/Screens" to="." method="_on_Screens_unpause"]

@@ -9,14 +9,17 @@
 [ext_resource path="res://scripts/Lava.gd" type="Script" id=7]
 
 [node name="Level1" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 5 )
 victory = "Level2"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
 position = Vector2( 112, 56 )
 speed = 200
 
 [node name="Floor Nodes" type="Node" parent="."]
+pause_mode = 1
 
 [node name="Floor" parent="Floor Nodes" instance=ExtResource( 2 )]
 position = Vector2( 64, 128 )
@@ -36,6 +39,7 @@ __meta__ = {
 [node name="Screens" parent="UI" instance=ExtResource( 3 )]
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
+pause_mode = 1
 position = Vector2( 0, 192 )
 scale = Vector2( 24.5, 1 )
 script = ExtResource( 7 )
@@ -44,5 +48,6 @@ script = ExtResource( 7 )
 position = Vector2( 328, 112 )
 [connection signal="quit" from="UI/Screens" to="." method="_on_Screens_quit"]
 [connection signal="try_again" from="UI/Screens" to="." method="_on_Screens_try_again"]
+[connection signal="unpause" from="UI/Screens" to="." method="_on_Screens_unpause"]
 [connection signal="body_entered" from="Enemy" to="." method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_Goal_body_entered"]
